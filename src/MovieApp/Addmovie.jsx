@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import App from "../App";
 import { Height, Padding } from "@mui/icons-material";
+import Button from '@mui/material/Button';
 
 const Addmovie = ({Moviedata, SetData})=>{
 
@@ -51,10 +52,11 @@ onChange={(event)=>{setSummary(event.target.value)}}
 <input style={styleinp} type="text" id="Movie-ratings" 
 onChange={(event)=>{setRatings(event.target.value)}}/>
         
-        <button onClick={(event)=>{
+        <Button variant="contained"
+         onClick={(event)=>{
             const newmovie = {name:name, poster:poster, summary:Summary, rating:Ratings };
             SetData([...Moviedata, newmovie]);
-        }}>Add movie</button>
+        }}>Add movie</Button>
 
         {/* <div>{name}-{poster}-{Summary}-{Ratings}</div>   */}
 
