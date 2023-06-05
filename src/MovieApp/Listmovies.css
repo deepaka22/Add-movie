@@ -1,0 +1,29 @@
+#poster-size{
+    width: 18rem;
+}
+.flex-property{
+    /* display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap:2rem ; */
+
+    /* RAM */
+    display:grid; 
+    grid-template-columns: repeat(auto-fit,minmax(18rem, 1fr));
+    gap: 0.8rem;
+    justify-items: center;
+
+}
+.rating-flex{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#star-style{
+    color: #e1cf09;
+}
+#btn-pad{
+    margin-right: 0.8rem;
+    padding: 0.1rem;
+}
