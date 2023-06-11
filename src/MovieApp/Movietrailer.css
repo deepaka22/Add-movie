@@ -1,0 +1,54 @@
+@media  (min-width:321px) and (max-width:375px){
+
+#movie-trailer-container{
+
+   width: 374px;
+   height: 20rem;
+
+}
+
+}
+
+@media (min-width:376px) and (max-width:425px ){
+
+    #movie-trailer-container{
+    
+       width: 424px;
+       height: 30rem;
+    
+    }
+    
+    }
+
+@media (min-width:425px) and (max-width:768px ){
+
+        #movie-trailer-container{
+        
+           width: 767px;
+           height: 40rem;
+        
+        }
+        
+        }
+
+@media (min-width:768px) and (max-width:1024px ){
+
+            #movie-trailer-container{
+            
+               width: 1023px;
+               height: 40rem;
+            
+            }
+            
+            }    
+            
+@media (min-width:1024px) and (max-width:1440px ){
+
+                #movie-trailer-container{
+                
+                   width: 1200px;
+                   height: 50rem;
+                
+                }
+                
+                }             

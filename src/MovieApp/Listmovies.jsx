@@ -10,9 +10,8 @@ import InfoIcon from '@mui/icons-material/Info';
 import { useNavigate } from "react-router-dom";
 
 
-const Listmovies = ({ indexes, names, posters, summarys, ratings,  }) => {
+const Listmovies = ({ index, names, posters, summarys, ratings,  }) => {
 
-  console.log(indexes);
   const styles = {
     color: ratings <= 8 ? "#d50000" : "green",
   };
@@ -58,7 +57,7 @@ const Listmovies = ({ indexes, names, posters, summarys, ratings,  }) => {
               )}
               <IconButton 
               onClick={()=>{
-                navi(`/movies/${indexes}`)
+                navi(`/movies/${index}/info`)
               }}>
               <i class="fa-solid fa-circle-info fa-xs" style={{color: "#206cee"}}></i>
               </IconButton>

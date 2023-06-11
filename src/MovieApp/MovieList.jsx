@@ -9,10 +9,8 @@ const MovieList = ({Moviedata})=>{
 
     return(
         <div className='flex-property'>
-        {Moviedata.map((ele, i)=>(          
-    // <div key={i}>
-    <Listmovies key={i}  indexes={i}  names= {ele.name} posters = {ele.poster} summarys={ele.summary} ratings = {ele.rating}/>
-//  </div>
+        {Moviedata.map((ele, i)=>(  
+     <Listmovies key={i}  index= {i}  names= {ele.name} posters = {ele.poster} summarys={ele.summary} ratings = {ele.rating}/>
         ))}
         
         </div>
