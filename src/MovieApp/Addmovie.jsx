@@ -3,6 +3,7 @@ import { useState } from "react";
 import App from "../App";
 import { Height, Padding } from "@mui/icons-material";
 import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 const Addmovie = ({Moviedata, SetData})=>{
 
@@ -15,12 +16,12 @@ const Addmovie = ({Moviedata, SetData})=>{
     }
 
     const styleinp={
-        border:"2px solid black",
-        paddingLeft:"0.5rem",
+        
     marginRight:"0.2rem",
     height:"40px",
-    width:"300px",
-
+    width:"310px",
+    marginTop:"0.2rem",
+    marginBottom:"0.2rem",
        
     }
 
@@ -34,31 +35,51 @@ const [Ratings, setRatings] = useState (null);
     return( 
 <div style={style}>
 
-<label htmlFor="Moviename" > <b>Movie Name</b></label>       
-<input style={styleinp} id="Moviename" type="text" 
+<TextField id="standard-error"
+          label="Movie Name"
+          type="search"
+          variant="standard"
+          required
+        //   id="standard-error"
+         style={styleinp}
+
 onChange={(event)=>{setname(event.target.value)}}/>
 
-<label htmlFor="Movie-poster" > <b> Movie poster</b>  </label>
-<input style={styleinp} type="text"  id="Movie-summary" 
+<TextField id="standard-search"
+          label="Movie Poster"
+          type="search"
+          variant="standard"
+          required
+         style={styleinp}
+
 onChange={(event)=>{setposter(event.target.value)}}
 />
 
-<label htmlFor="Movie-summary " > <b> Movie Summary </b> </label>
-<input style={styleinp} type="text" id="Movie-poster" 
+<TextField id="standard-search"
+          label="Movie Summary"
+          type="search"
+          variant="standard"
+         style={styleinp} 
+         required
 onChange={(event)=>{setSummary(event.target.value)}}
 />
 
-<label htmlFor="Movie-ratings" > <b> Movie Ratings </b> </label>
-<input style={styleinp} type="text" id="Movie-ratings" 
+
+<TextField id="standard-search"
+          label="Rating"
+          type="search"
+          variant="standard"
+          required
+         style={styleinp}
+            
 onChange={(event)=>{setRatings(event.target.value)}}/>
         
-        <Button variant="contained"
+        <Button variant="contained" 
          onClick={(event)=>{
             const newmovie = {name:name, poster:poster, summary:Summary, rating:Ratings };
             SetData([...Moviedata, newmovie]);
         }}>Add movie</Button>
 
-        {/* <div>{name}-{poster}-{Summary}-{Ratings}</div>   */}
 
 </div>
     )

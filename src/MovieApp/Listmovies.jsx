@@ -1,21 +1,35 @@
 import { useState } from "react";
 import "./Listmovies.css";
 
-const Listmovies = ({ names, posters, summarys, ratings }) => {
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import LikeDislike from "./LikeDislike";
+import IconButton from '@mui/material/IconButton';
+import Button from '@mui/material/Button';
+import InfoIcon from '@mui/icons-material/Info';
+import { useNavigate } from "react-router-dom";
+
+
+const Listmovies = ({ indexes, names, posters, summarys, ratings,  }) => {
+
+  console.log(indexes);
   const styles = {
     color: ratings <= 8 ? "#d50000" : "green",
   };
 
-  const [para , Setpara] = useState(0);
+  const [para, Setpara] = useState(0);
 
   const parastyling = {
-    display :  para ? "block" : "none",
-  }
+    display: para ? "block" : "none",
+    marginTop: "1.5rem",
+  };
+
+  const navi = useNavigate();
   
 
   return (
     <div>
-      <div className="card" id="poster-size">
+      <div className="card " id="poster-size">
         <img
           src={posters}
           class="card-img-top"
@@ -25,19 +39,42 @@ const Listmovies = ({ names, posters, summarys, ratings }) => {
         />
         <div className="card-body">
           <div className="rating-flex">
-            <h5>{names}</h5>
+            <h5>
+              {names} &nbsp;
+              {para ? (
+                <KeyboardArrowUpIcon
+                  className="align-items-center"
+                  onClick={() => {
+                    Setpara(!para);
+                  }}
+                ></KeyboardArrowUpIcon>
+              ) : (
+                <KeyboardArrowDownIcon
+                  className="align-items-center"
+                  onClick={() => {
+                    Setpara(!para);
+                  }}
+                ></KeyboardArrowDownIcon>
+              )}
+              <IconButton 
+              onClick={()=>{
+                navi(`/movies/${indexes}`)
+              }}>
+              <i class="fa-solid fa-circle-info fa-xs" style={{color: "#206cee"}}></i>
+              </IconButton>
+              
+            </h5>
             <h5 style={styles}>
               <i class="fa-solid fa-star fa-xs " id="star-style"></i> &nbsp;
               {ratings}
             </h5>
           </div>
-<button onClick={()=>{Setpara(!para)}}>Toggle summary</button>
- <p style={parastyling} className="card-text">{summarys} </p>
+
+          <p style={parastyling} className="card-text">
+          {" "}  {summarys}
+          </p>
         </div>
-        <div>
-          <button id="btn-pad"> <i class="fa-solid fa-thumbs-up"></i>&nbsp;Like</button>
-          <button id="btn-pad"><i class="fa-solid fa-thumbs-down" ></i>&nbsp;Dislike</button>
-        </div>
+       <LikeDislike/>
       </div>
     </div>
   );

@@ -3,6 +3,9 @@ import "./App.css";
 import Addmovie from "./MovieApp/Addmovie";
 import Colorgame from "./Addcolorgame/Colorgame";
 import { useState } from "react";
+import { Routes, Route, Link, Navigate } from "react-router-dom";
+import Welcome from "./MovieApp/Welcome";
+import Notfound from "./MovieApp/Notfound";
 
 function App() {
   const [Data, SetData] = useState([
@@ -31,7 +34,7 @@ function App() {
         "With the world now aware that he is Iron Man, billionaire inventor Tony Stark (Robert Downey Jr.) faces pressure from all sides to share his technology with the military. He is reluctant to divulge the secrets of his armored suit, fearing the information will fall into the wrong hands. With Pepper Potts (Gwyneth Paltrow) and Rhodes (Don Cheadle) by his side, Tony must forge new alliances and confront a powerful new enemy.",
     },
     {
-      name: "No Country for Old Men",
+      name: "No Country for Old ",
       poster:
         "https://upload.wikimedia.org/wikipedia/en/8/8b/No_Country_for_Old_Men_poster.jpg",
       rating: 8.1,
@@ -96,11 +99,40 @@ function App() {
 
   return (
     <div className="App">
-      <Addmovie SetData={SetData} Moviedata={Data} />
+      <ul>
+        <li>
+          {" "}
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/Addmovies">Addmovie</Link>
+        </li>
+        <li>
+          <Link to="/movies">Movie</Link>
+        </li>
+        <li>
+          <Link to="/game">Add color game</Link>
+        </li>
+      </ul>
 
-      <MovieList Moviedata={Data} />
-
-      {/* <Colorgame /> */}
+      <Routes>
+        <Route path="/" element={<Welcome />}></Route>
+        <Route
+          path="/Addmovies"
+          element={<Addmovie SetData={SetData} Moviedata={Data} />}
+        ></Route>
+        <Route path="/movies" element={<MovieList Moviedata={Data} />}></Route>
+        <Route
+          path="/films"
+          element={<Navigate replace to="/movies" />}
+        ></Route>
+        <Route
+          path="/movie"
+          element={<Navigate replace to="/movies" />}
+        ></Route>
+        <Route path="/game" element={<Colorgame />}></Route>
+        <Route path="*" element={<Notfound />}></Route>
+      </Routes>
     </div>
   );
 }
