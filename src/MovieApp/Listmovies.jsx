@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Listmovies.css";
 
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
@@ -12,6 +12,13 @@ import { useNavigate } from "react-router-dom";
 
 const Listmovies = ({ index, names, posters, summarys, ratings,  }) => {
 
+
+
+
+
+
+  // styling part
+
   const styles = {
     color: ratings <= 8 ? "#d50000" : "green",
   };
@@ -23,12 +30,14 @@ const Listmovies = ({ index, names, posters, summarys, ratings,  }) => {
     marginTop: "1.5rem",
   };
 
+  // ends here
+
   const navi = useNavigate();
   
 
   return (
     <div>
-      <div className="card " id="poster-size">
+      <div className="card mt-4" id="poster-size">
         <img
           src={posters}
           class="card-img-top"

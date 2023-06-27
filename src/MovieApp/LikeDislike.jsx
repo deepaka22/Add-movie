@@ -12,7 +12,7 @@ const LikeDislike = ()=>{
 
     return(
         <div className="text-start mb-4 mt-3">
-<Badge  color="error" overlap="circular"  badgeContent= {like} className="mx-1">
+    <Badge  color="error" overlap="circular"  badgeContent= {like} className="mx-1">
            <button className="btn btn-outline-primary"    onClick={()=>{
             Setlike(like + 1);
           }}>
@@ -22,7 +22,7 @@ const LikeDislike = ()=>{
           
           <Badge  color="primary" overlap="circular" className="mx-1"
              badgeContent= {dislike}>
-               <button className="btn btn-outline-danger"   onClick={()=>{
+               <button className="btn btn-outline-danger" onClick={()=>{
             setdislike(dislike + 1);
           }}>
           
