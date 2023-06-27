@@ -35,6 +35,7 @@ function App() {
             <Route
               path="/Addmovies"
               // element={<Addmovie SetData={SetData} Moviedata={Data} />}
+              element={<Addmovie />}
             ></Route>
             <Route
               path="/movies"
