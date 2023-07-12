@@ -4,7 +4,7 @@ import "./Listmovies.css";
 
 import Badge from '@mui/material/Badge';
 
-const LikeDislike = ()=>{
+const LikeDislike = ({btn})=>{
 
     const [like, Setlike] = useState(0);
   const [dislike, setdislike] = useState(0);
@@ -29,6 +29,9 @@ const LikeDislike = ()=>{
             <i class="fa-solid fa-thumbs-down fa-lg"></i>
           </button>
           </Badge >
+
+          {btn}
+          
             </div>
     )
 }

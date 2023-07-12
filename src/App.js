@@ -30,6 +30,7 @@ function App() {
       <CssBaseline>
         <div className="App">
           <Navbar mode={mode} setmode={setmode} />
+
           <Routes>
             <Route path="/" element={<Welcome />}></Route>
             <Route
