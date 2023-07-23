@@ -4,14 +4,19 @@ import "./Listmovies.css";
 
 import Badge from '@mui/material/Badge';
 
-const LikeDislike = ({btn})=>{
+const LikeDislike = ({btn, editbtn})=>{
 
     const [like, Setlike] = useState(0);
   const [dislike, setdislike] = useState(0);
 
+  const styling = {
+    marginRight : "4.5rem"
+  } 
+
 
     return(
-        <div className="text-start mb-4 mt-3">
+      <div className="d-flex " >
+                <div className="text-start mb-4 mt-3" style={styling}>
     <Badge  color="error" overlap="circular"  badgeContent= {like} className="mx-1">
            <button className="btn btn-outline-primary"    onClick={()=>{
             Setlike(like + 1);
@@ -30,9 +35,16 @@ const LikeDislike = ({btn})=>{
           </button>
           </Badge >
 
-          {btn}
+          </div>
+          <div className=" mb-4 mt-3 ">
           
-            </div>
+          {editbtn}
+
+          {btn} 
+          
+          </div >     
+          </div>
+
     )
 }
 

@@ -42,6 +42,11 @@ const MovieList = ({})=>{
       getmovies();
     }
     }
+
+    const editmovies = ()=>{
+      const alerting = window.confirm(`Are you sure, you want to edit `)
+
+    }
     
 
     useEffect( ()=>getmovies(), [])
@@ -56,13 +61,22 @@ const MovieList = ({})=>{
       names= {ele.name}
       posters = {ele.poster}
       summarys={ele.summary} 
-      ratings = {ele.rating}
-      deleteButton = {<Badge  color="error" overlap="circular" className="mx-1">
+      ratings = {ele.rating}    
+
+     editButton = {<Badge  color="error" overlap="circular" className="mx-1">
+     <button onClick={()=>{
+       editmovies()}} className="btn btn-outline-warning"   >
+     <i class="fa-solid fa-pen-to-square fa-3xs"></i> 
+    </button>
+    </Badge >} 
+    
+    deleteButton = {<Badge  color="error" overlap="circular" className="mx-1">
       <button onClick={()=>{
         deletmovies(ele.id, ele.name)}} className="btn btn-outline-danger"   >
-      <i class="fa-solid fa-trash"></i>
+      <i class="fa-solid fa-trash "></i>
      </button>
-     </Badge >} />     
+     </Badge >}
+     />     
             ))}
         
         </div>

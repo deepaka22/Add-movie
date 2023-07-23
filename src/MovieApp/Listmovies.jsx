@@ -10,7 +10,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import { useNavigate } from "react-router-dom";
 
 
-const Listmovies = ({ index, names, posters, summarys, ratings, deleteButton  }) => {
+const Listmovies = ({ index, names, posters, summarys, ratings, deleteButton, editButton  }) => {
 
 
 
@@ -83,7 +83,7 @@ const Listmovies = ({ index, names, posters, summarys, ratings, deleteButton  })
           </p>
         </div>
         
-       <LikeDislike btn = {deleteButton}   className="d-flex"/>
+       <LikeDislike btn = {deleteButton} editbtn = {editButton}   className="d-flex"/>
        
        
       </div>

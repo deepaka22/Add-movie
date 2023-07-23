@@ -15,6 +15,8 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ContactlessOutlined } from "@mui/icons-material";
 import { useEffect } from "react";
+import Addform from "./MovieApp/Addform";
+import Addingmovie from "./MovieApp/Addingmovie";
 
 function App() {
   const [mode, setmode] = useState("light");
@@ -33,10 +35,22 @@ function App() {
 
           <Routes>
             <Route path="/" element={<Welcome />}></Route>
-            <Route
+            <Route path="/forms" element={<Addform />}></Route>
+            {/* <Route
               path="/Addmovies"
               // element={<Addmovie SetData={SetData} Moviedata={Data} />}
               element={<Addmovie />}
+            ></Route> */}
+            <Route
+              path="/Addmovies"
+              // element={<Addmovie SetData={SetData} Moviedata={Data} />}
+              element={<Addingmovie />}
+            ></Route>
+
+            <Route
+              path="/Added"
+              // element={<Addmovie SetData={SetData} Moviedata={Data} />}
+              element={<Addingmovie />}
             ></Route>
             <Route
               path="/movies"
