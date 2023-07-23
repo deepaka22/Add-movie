@@ -43,8 +43,61 @@ const MovieList = ({})=>{
     }
     }
 
-    const editmovies = ()=>{
-      const alerting = window.confirm(`Are you sure, you want to edit `)
+
+
+    const editmovies = (id, name, poster, summary, rating)=>{
+
+      const alerting = window.confirm(`Are you sure, you want to edit ${name}`)
+
+      if(alerting===true){
+        const userPrompt = prompt('what Would you like edit in this ? name or rating', 'name')
+
+        if (userPrompt== 'name'){
+
+          const userNameprompt = prompt('kindly enter the movie name')
+
+          const editedname = {name: userNameprompt}
+
+          fetch(`https://648c47ba8620b8bae7ec9aab.mockapi.io/movies/${id}`,
+           {method: 'PUT',
+           headers: {"Content-type" : "application/json"},
+           body : JSON.stringify(editedname)
+           }).then((data)=>{
+            return  data.json()
+          }).then(()=>  getmovies())
+         
+        
+        }
+
+        if (userPrompt== 'rating'){
+
+          const userratingprompt = prompt('kindly enter the ratings')
+
+          if(userratingprompt <=10) {
+
+          const editedrating = {rating: userratingprompt}
+
+          fetch(`https://648c47ba8620b8bae7ec9aab.mockapi.io/movies/${id}`,
+           {method: 'PUT',
+           headers: {"Content-type" : "application/json"},
+           body : JSON.stringify(editedrating)
+           }).then((data)=>{
+            return  data.json()
+          }).then(()=>  getmovies())
+         
+        }
+        else{
+
+          window.alert('Enter valid rating less than 10');
+
+        }
+        
+        }
+
+
+       
+      }
+      
 
     }
     
@@ -65,7 +118,7 @@ const MovieList = ({})=>{
 
      editButton = {<Badge  color="error" overlap="circular" className="mx-1">
      <button onClick={()=>{
-       editmovies()}} className="btn btn-outline-warning"   >
+       editmovies(ele.id, ele.name, ele.poster,ele.summary, ele.rating)}} className="btn btn-outline-warning"   >
      <i class="fa-solid fa-pen-to-square fa-3xs"></i> 
     </button>
     </Badge >} 
